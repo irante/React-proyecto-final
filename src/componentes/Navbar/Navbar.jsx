@@ -11,18 +11,27 @@ const Navbar = () => {
       </button>
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+         
           <li className="nav-item">
             <a className="nav-link" aria-current="page" href="./index.html">Inicio</a>
           </li>
+         
           <li className="nav-item">
             <a className="nav-link" href="./pcs.html">Pc de Escitorio</a>
           </li>
+          
           <li className="nav-item">
             <a className="nav-link" href="./notebooks.html">Notebooks</a>
           </li>
+          
+          <li className="nav-item">
+            <a className="nav-link" href="">Monitores</a>
+          </li>
+          
           <li className="nav-item">
             <a className="nav-link" href="./contacto.html">Contacto</a>
           </li> 
+        
         </ul>
       </div>
       <Cartwidget/>

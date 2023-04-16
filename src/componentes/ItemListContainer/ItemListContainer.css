@@ -1,3 +1,16 @@
-.subtitulo{
-    color: rgb(5,175,119);
+
+.decoracion{
+
+    margin-top: 2rem;
+    margin-left: 1rem;
+    width: 20rem;
+    height: 2.5rem;
+    border-radius: 15px;
+    background-color: rgba(122,15,215,0.945);
+}
+
+.titulo{
+    color: rgb(248, 248, 248);
+    text-align: center;
+    font-weight: bold;
 }

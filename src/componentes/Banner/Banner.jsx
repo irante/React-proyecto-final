@@ -1,6 +1,6 @@
 import React from 'react'
 import './Banner.css'
-import logoirantech from './logoirantech.jpg'
+import logoirantech from '../../img/logoirantech.jpg'
 
 const Banner = () => {
   return (

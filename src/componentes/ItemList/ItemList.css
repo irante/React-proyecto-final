@@ -1,0 +1,8 @@
+.contenedorProductos{
+    margin: 3rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+   
+}

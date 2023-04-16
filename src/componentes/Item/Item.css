@@ -1,0 +1,13 @@
+.cardProducto{
+    border: 2px rgb(7, 216, 132) solid;
+    text-align: center;
+    padding:0.5rem;
+    border-radius: 8px;
+    width: 20vw;
+   
+}
+
+.imagen {
+    width: 17rem;
+    object-fit: contain;
+}
