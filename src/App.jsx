@@ -28,15 +28,23 @@ function App() {
 
 
         <Routes>
-          <Route/>
-          <Route/>
-          <Route/>
-          <Route/>
+          {/*home*/}
+          <Route path="/" element={<ItemListContainer/>}/>
+
+          {/*cards de productos*/}
+          <Route path="/categoria/:idCategoria" element={<ItemListContainer/>}/>
+
+           {/*Detalle de productos*/}
+           <Route path="/item/:idItem" element={ <ItemDetailContainer/> }  />
+
+           <Route path="*" element={<h2>Sitio en Construccion</h2> }  />
+          
         </Routes>
       </BrowserRouter>
+      
 
-     <ItemListContainer/>     
-     <ItemDetailContainer/> 
+       
+      
 
 
 

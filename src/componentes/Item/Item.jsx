@@ -1,5 +1,6 @@
 import React from 'react'
 import './Item.css'
+import { Link } from 'react-router-dom'
 
 
 //recibo el objeto iterado como props
@@ -16,7 +17,7 @@ const Item = ({detalles}) => {
         <p>{Descripcion}</p>
         <p>$ {precio}</p>
         <p>Id: {id}</p>
-        <button className='btnProducto'>Ver Detalles</button>
+        <Link to={`/item/${id}`}> Ver Detalles </Link>
     </div>
   )
 }
