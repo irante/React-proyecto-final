@@ -1,10 +1,10 @@
 import React from 'react'
 import './ItemListContainer.css'
 import { useState, useEffect } from 'react'
-import { getProducts, getProductosPorCategoria } from '../../asyncmock'
 import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom'
-
+import { collection, getDocs, where, query } from 'firebase/firestore'
+import { db } from '../../services/firebase/config'
 
 const ItemListContainer = () => {
 
@@ -12,17 +12,21 @@ const ItemListContainer = () => {
 
   const {idCategoria} = useParams();
 
- const funcionProductos = idCategoria ? getProductosPorCategoria : getProducts;
+ useEffect(()=>{
+   const misProductos = idCategoria ? query(collection(db,"Productos"),where("idCat", "==", idCategoria)):collection(db,"Productos");
+  getDocs(misProductos)
+    .then(res=>{
+      const nuevosProductos = res.docs.map(doc => {
+        const data = doc.data()
+        return {id:doc.id, ...data}
+      })
+      setProducts(nuevosProductos);
+
+    })
+
+},[idCategoria])
   
-  useEffect(() => {
-
-    
-
-    funcionProductos(idCategoria)
-      .then(respuesta => {
-       setProducts(respuesta);       
-    });
-  }, [idCategoria]);
+ 
 
   return (
     <div>

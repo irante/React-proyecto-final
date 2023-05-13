@@ -1,8 +1,12 @@
 import React from 'react';
-import { getUnProducto } from '../../asyncmock';
+
 import { useState, useEffect } from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from "react-router-dom";
+import { db } from '../../services/firebase/config';
+import { getDoc, doc } from 'firebase/firestore';
+
+
 
 const ItemDetailContainer = () => {
 
@@ -11,22 +15,22 @@ const ItemDetailContainer = () => {
 
   const {idItem} = useParams();
 
-  console.log (idItem) 
+ 
    
    //obtengo un objeto como respuesta y la asigno a la variable de estado producto
    
-   useEffect(() => {
-        getUnProducto(idItem)
-          .then(respuesta => {
-           setProducto(respuesta);       
-        });
-      }, [idItem]);
+  useEffect(()=>{
+    const nuevoDoc = doc(db, "Productos", idItem)
+
+    getDoc(nuevoDoc)
+      .then(res=>{
+        const data = res.data();
+        const nuevoProducto = {id:res.id, ...data}
+        setProducto(nuevoProducto);
+      })
+  })
 
       
-
-
-
-
      
   //envio a ItemDetail como props el objeto de producto seleccionado 
 
